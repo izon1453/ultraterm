@@ -25,13 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    connectwidget.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    connectwidget.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    connectwidget.ui
 
 RESOURCES += \
     icons.qrc

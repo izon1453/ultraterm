@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "connectwidget.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +19,11 @@ public:
 
 private:
 	Ui::MainWindow *ui;
+
+	ConnectWidget *connectWidget;
+
+private slots:
+	void sltConnectToolbar(bool);
 };
 
 #endif // MAINWINDOW_H
