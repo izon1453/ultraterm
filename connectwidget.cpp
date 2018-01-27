@@ -14,10 +14,6 @@ ConnectWidget::ConnectWidget(QWidget *parent) :
 	ui->cboxBits->addItem("6", 6);
 	ui->cboxBits->addItem("5", 5);
 
-	ui->cboxParity->addItem("None", 0);
-	ui->cboxParity->addItem("Odd", 1);
-	ui->cboxParity->addItem("Even", 2);
-
 	ui->cboxStopbits->addItem("1", 1);
 	ui->cboxStopbits->addItem("2", 2);
 }
