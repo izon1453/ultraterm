@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/menu">
+        <file>icons/icons8-play-100.png</file>
+        <file>icons/icons8-stop-100.png</file>
+    </qresource>
+</RCC>
