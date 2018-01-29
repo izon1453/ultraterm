@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>649</width>
+    <width>598</width>
     <height>46</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="contextMenuPolicy">
    <enum>Qt::DefaultContextMenu</enum>
@@ -30,7 +36,13 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="cboxPort"/>
+      <widget class="QComboBox" name="cboxPort">
+       <item>
+        <property name="text">
+         <string>loopback</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="lblBaudrate">
@@ -150,18 +162,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="cboxStopbits">
-       <item>
-        <property name="text">
-         <string notr="true">1</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>2</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="cboxStopbits"/>
      </item>
     </layout>
    </item>

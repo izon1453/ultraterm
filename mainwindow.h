@@ -23,7 +23,8 @@ private:
 	ConnectWidget *connectWidget;
 
 private slots:
-	void sltConnectToolbar(bool);
+	void connect();
+	void disconnect();
 };
 
 #endif // MAINWINDOW_H

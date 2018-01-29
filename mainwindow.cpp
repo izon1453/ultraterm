@@ -13,11 +13,13 @@ MainWindow::MainWindow(QWidget *parent) :
 	connectWidget = new ConnectWidget(this);
 	ui->connectToolBar->addWidget(connectWidget);
 
-	this->setMinimumWidth(connectWidget->width() + 10);
-	ui->pltxOutput->adjustSize();
-	ui->splitter->adjustSize();
+	qDebug() << ui->connectToolBar->width();
+	qDebug() << ui->connectToolBar->iconSize().width();
+	this->setMinimumWidth(connectWidget->width() +  ui->connectToolBar->width() - ui->connectToolBar->iconSize().width());
 
 	// File menu
+	connect(ui->actionConnect, SIGNAL(triggered()), this, SLOT(connect()));
+	connect(ui->actionDisconnect, SIGNAL(triggered()), this, SLOT(disconnect()));
 	connect(ui->actionExit, SIGNAL(triggered()), qApp, SLOT(quit()));
 
 	// View menu
@@ -35,9 +37,12 @@ MainWindow::~MainWindow()
 	delete ui;
 }
 
-void MainWindow::sltConnectToolbar(bool checked)
+void MainWindow::connect()
 {
-	if(checked)
-		ui->connectToolBar->hide();
+
 }
 
+void MainWindow::disconnect()
+{
+
+}
