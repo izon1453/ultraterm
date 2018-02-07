@@ -32,11 +32,19 @@ ConnectWidget::~ConnectWidget()
 	delete ui;
 }
 
+/**
+ * @brief ConnectWidget::getPortName Геттер выбранного пользователем последовательного порта.
+ * @return Возвращает имя выбранного порта.
+ */
 QString ConnectWidget::getPortName()
 {
 	return ui->cboxPort->itemText(ui->cboxPort->currentIndex());
 }
 
+/**
+ * @brief ConnectWidget::getBaudRate Геттер выбранного пользователем бодрейта.
+ * @return Возвращает значение выбранного бодрейта.
+ */
 quint32 ConnectWidget::getBaudRate()
 {
 	qint32 tmpBaudRate = ui->cboxBaudrate->currentText().toInt();
@@ -49,7 +57,7 @@ quint32 ConnectWidget::getBaudRate()
 }
 
 /**
- * @brief ConnectWidget::renewPorts Обновляет список com-портов в виджете.
+ * @brief ConnectWidget::renewPorts Обновляет список com-портов в виджете при необходимости.
  */
 void ConnectWidget::renewPorts()
 {
