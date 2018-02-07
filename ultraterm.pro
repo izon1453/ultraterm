@@ -7,6 +7,7 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += serialport
 
 TARGET = ultraterm
 TEMPLATE = app
@@ -26,11 +27,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    connectwidget.cpp
+    connectwidget.cpp \
+    serialport.cpp
 
 HEADERS += \
         mainwindow.h \
-    connectwidget.h
+    connectwidget.h \
+    serialport.h
 
 FORMS += \
         mainwindow.ui \

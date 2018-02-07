@@ -98,8 +98,8 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="actionConnect"/>
-    <addaction name="actionDisconnect"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionClose"/>
     <addaction name="separator"/>
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
@@ -113,7 +113,7 @@
     <addaction name="actionAutoscroll"/>
     <addaction name="separator"/>
     <addaction name="actionConnectToolbar"/>
-    <addaction name="actionInputArea"/>
+    <addaction name="actionWriteArea"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -139,18 +139,21 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionConnect"/>
-   <addaction name="actionDisconnect"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionClose"/>
    <addaction name="separator"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionConnect">
+  <action name="actionOpen">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/menu/icons/icons8-play-100.png</normaloff>:/menu/icons/icons8-play-100.png</iconset>
    </property>
    <property name="text">
-    <string>Connect</string>
+    <string>Open device</string>
    </property>
    <property name="shortcut">
     <string>F2</string>
@@ -159,7 +162,10 @@
     <enum>QAction::TextHeuristicRole</enum>
    </property>
   </action>
-  <action name="actionDisconnect">
+  <action name="actionClose">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -168,7 +174,7 @@
      <normaloff>:/menu/icons/icons8-stop-100.png</normaloff>:/menu/icons/icons8-stop-100.png</iconset>
    </property>
    <property name="text">
-    <string>Disconnect</string>
+    <string>Close device</string>
    </property>
    <property name="shortcut">
     <string>F3</string>
@@ -225,7 +231,7 @@
     <string>Connect toolbar</string>
    </property>
   </action>
-  <action name="actionInputArea">
+  <action name="actionWriteArea">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -233,7 +239,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Input area</string>
+    <string>Write area</string>
    </property>
   </action>
   <action name="actionSaveAs">

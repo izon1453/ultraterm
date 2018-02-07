@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>598</width>
+    <width>634</width>
     <height>46</height>
    </rect>
   </property>
@@ -36,13 +36,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="cboxPort">
-       <item>
-        <property name="text">
-         <string>loopback</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="cboxPort"/>
      </item>
      <item>
       <widget class="QLabel" name="lblBaudrate">
@@ -52,7 +46,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="cboxBaudrate">
        <property name="editable">
         <bool>true</bool>
        </property>

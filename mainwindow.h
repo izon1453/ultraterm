@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "connectwidget.h"
+#include "serialport.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,9 +23,11 @@ private:
 
 	ConnectWidget *connectWidget;
 
+	SerialPort *serial;
+
 private slots:
-	void connect();
-	void disconnect();
+	void connOpen();
+	void connClose();
 };
 
 #endif // MAINWINDOW_H
