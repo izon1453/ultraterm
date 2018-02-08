@@ -6,3 +6,8 @@ SerialPort::SerialPort()
 {
 
 }
+
+//bool SerialPort::configure(qint32 baudRate, )
+//{
+
+//}

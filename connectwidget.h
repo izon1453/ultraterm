@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTimer>
+#include <QSerialPort>
 #include <QSerialPortInfo>
 
 namespace Ui {
@@ -18,7 +19,9 @@ public:
 	~ConnectWidget();
 
 	QString getPortName();
-	quint32 getBaudRate();
+	qint32 getBaudRate();
+	QSerialPort::DataBits getDataBits();
+	QSerialPort::Parity getParity();
 
 private:
 	Ui::ConnectWidget *ui;

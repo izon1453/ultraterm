@@ -2,6 +2,7 @@
 #include "ui_connectwidget.h"
 
 #include <QDebug>
+#include <QSerialPort>
 #include <QSerialPortInfo>
 
 ConnectWidget::ConnectWidget(QWidget *parent) :
@@ -14,10 +15,16 @@ ConnectWidget::ConnectWidget(QWidget *parent) :
 	connect(renewTimer, SIGNAL(timeout()), this, SLOT(renewPorts()));
 	renewTimer->start(1000);
 
-	ui->cboxBits->addItem("8", 8);
-	ui->cboxBits->addItem("7", 7);
-	ui->cboxBits->addItem("6", 6);
-	ui->cboxBits->addItem("5", 5);
+	ui->cboxBits->addItem("8", QSerialPort::Data8);
+	ui->cboxBits->addItem("7", QSerialPort::Data7);
+	ui->cboxBits->addItem("6", QSerialPort::Data6);
+	ui->cboxBits->addItem("5", QSerialPort::Data5);
+
+	ui->cboxParity->addItem("None", QSerialPort::NoParity);
+	ui->cboxParity->addItem("Even", QSerialPort::EvenParity);
+	ui->cboxParity->addItem("Odd", QSerialPort::OddParity);
+	ui->cboxParity->addItem("Space", QSerialPort::SpaceParity);
+	ui->cboxParity->addItem("Mark", QSerialPort::MarkParity);
 
 	ui->cboxStopbits->addItem("1", 1);
 	ui->cboxStopbits->addItem("2", 2);
@@ -45,7 +52,7 @@ QString ConnectWidget::getPortName()
  * @brief ConnectWidget::getBaudRate Геттер выбранного пользователем бодрейта.
  * @return Возвращает значение выбранного бодрейта.
  */
-quint32 ConnectWidget::getBaudRate()
+qint32 ConnectWidget::getBaudRate()
 {
 	qint32 tmpBaudRate = ui->cboxBaudrate->currentText().toInt();
 	if(tmpBaudRate < 0)
@@ -53,7 +60,27 @@ quint32 ConnectWidget::getBaudRate()
 		tmpBaudRate = 0;
 		ui->cboxBaudrate->setCurrentText("0");
 	}
-	return (quint32)tmpBaudRate;
+	return (qint32)tmpBaudRate;
+}
+
+/**
+ * @brief ConnectWidget::getDataBits Геттер выбранного пользователем количества бит данных в посылке.
+ * @return Возвращает выбранное в виджете оличество бит данных.
+ */
+QSerialPort::DataBits ConnectWidget::getDataBits()
+{
+	QVariant tmp = ui->cboxBits->itemData(ui->cboxBits->currentIndex());
+	return tmp.value<QSerialPort::DataBits>();
+}
+
+/**
+ * @brief ConnectWidget::getParity Геттер выбранной пользователем четности.
+ * @return Возвращает выбранный в виджете вариант расчета четности.
+ */
+QSerialPort::Parity ConnectWidget::getParity()
+{
+	QVariant tmp = ui->cboxParity->itemData(ui->cboxParity->currentIndex());
+	return tmp.value<QSerialPort::Parity>();
 }
 
 /**

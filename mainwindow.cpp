@@ -52,7 +52,11 @@ void MainWindow::connOpen()
 	if(serial->open(QIODevice::ReadWrite))
 	{
 		qDebug() << serial->portName();
-		serial->setBaudRate(connectWidget->getBaudRate());
+		if(serial->setBaudRate(connectWidget->getBaudRate()))
+		{
+			connectWidget->getDataBits();
+			qDebug() << connectWidget->getParity();
+		}
 		qDebug() << connectWidget->getBaudRate();
 	}
 	else
