@@ -16,9 +16,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	// connectWidget
 	connectWidget = new ConnectWidget(this);
-	ui->connectToolBar->addWidget(connectWidget);
+	ui->deviceToolBar->addWidget(connectWidget);
 
-	this->setMinimumWidth(connectWidget->width() +  ui->connectToolBar->width() - ui->connectToolBar->iconSize().width());
+	this->setMinimumWidth(ui->mainToolBar->width() + connectWidget->width());
 
 	// File menu
 	connect(ui->actionOpen, SIGNAL(triggered()), this, SLOT(connOpen()));
@@ -26,7 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->actionExit, SIGNAL(triggered()), qApp, SLOT(quit()));
 
 	// View menu
-	connect(ui->actionConnectToolbar, SIGNAL(toggled(bool)), ui->connectToolBar, SLOT(setVisible(bool)));
+	connect(ui->actionMainToolbar, SIGNAL(toggled(bool)), ui->mainToolBar, SLOT(setVisible(bool)));
+	connect(ui->actionDeviceToolbar, SIGNAL(toggled(bool)), ui->deviceToolBar, SLOT(setVisible(bool)));
 	connect(ui->actionWriteArea, SIGNAL(toggled(bool)), ui->pltxInput, SLOT(setVisible(bool)));
 
 	// Help menu
